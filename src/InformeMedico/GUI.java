@@ -1,5 +1,7 @@
 package InformeMedico;
 
+import java.io.File;
+
 /**
  *
  * @author munchi
@@ -147,7 +149,9 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_datosPacienteMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        File archivo = new File("src/informesMedicos/data.dat");
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public Paciente getPaciente() {

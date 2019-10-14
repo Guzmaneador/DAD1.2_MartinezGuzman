@@ -509,6 +509,30 @@ public class DatosPaciente extends javax.swing.JFrame {
         paciente.setApellidos(apellidosTextField.getText());
         paciente.setFecha(nacimientoSpinner.toString());//provar con value
         paciente.setIdioma(idiomasList.getSelectedValue());
+        if(MasculinoRadioButton.isSelected()){
+            paciente.setSexo("Masculino");
+        }else if(femeninoRadioButton.isSelected()){
+            paciente.setSexo("Femenino");
+        }else{paciente.setSexo("NoEspecificado");}
+        
+        paciente.setResidencia(residenciaTextField.getText());
+        paciente.setTrabajo(trabajoTextField.getText());
+        paciente.setTelefono(Integer.parseInt(telefonoTextField.getText()));
+        paciente.setCorreo(correoTextField.getText());
+        paciente.setPersonasConvive(Integer.parseInt(conviveSpinner.toString()));
+        if(chaletRadioButton.isSelected()){
+            paciente.setTipoVivienda("Chalet");
+        }else if(pisoRadioButton.isSelected()){
+            paciente.setTipoVivienda("Piso");
+        }else if(adosadoRadioButton.isSelected()){
+            paciente.setTipoVivienda("Adosado");
+        }{paciente.setSexo("NoEspecificado");}
+        
+        if(mascotasCheckBox.isSelected()){
+            paciente.setMacotas(true);
+            paciente.setTipoMascota(mascotasTextField.getText());
+        }else{paciente.setTipoMascota("-");paciente.setMacotas(false);}
+        
         
     }//GEN-LAST:event_guardarButtonActionPerformed
 
