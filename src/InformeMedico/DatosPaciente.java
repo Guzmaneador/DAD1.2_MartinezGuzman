@@ -517,9 +517,9 @@ public class DatosPaciente extends javax.swing.JFrame {
         
         paciente.setResidencia(residenciaTextField.getText());
         paciente.setTrabajo(trabajoTextField.getText());
-        paciente.setTelefono(Integer.parseInt(telefonoTextField.getText()));
+        paciente.setTelefono(telefonoTextField.getText());
         paciente.setCorreo(correoTextField.getText());
-        paciente.setPersonasConvive(Integer.parseInt(conviveSpinner.toString()));
+        paciente.setPersonasConvive(conviveSpinner.toString());
         if(chaletRadioButton.isSelected()){
             paciente.setTipoVivienda("Chalet");
         }else if(pisoRadioButton.isSelected()){

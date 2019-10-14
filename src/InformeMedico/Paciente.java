@@ -12,14 +12,14 @@ public class Paciente {
     String sexo;
     String residencia;
     String trabajo;
-    int telefono;
+    String telefono;
     String correo;
-    int personasConvive;
+    String personasConvive;
     String tipoVivienda;
     boolean macotas;
     String tipoMascota;
     String empleo;
-    int anhosEmpleo;
+    String anhosEmpleo;
     String empleosRiego;
 
     public String getNombre() {
@@ -78,11 +78,11 @@ public class Paciente {
         this.trabajo = trabajo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -94,11 +94,11 @@ public class Paciente {
         this.correo = correo;
     }
 
-    public int getPersonasConvive() {
+    public String getPersonasConvive() {
         return personasConvive;
     }
 
-    public void setPersonasConvive(int personasConvive) {
+    public void setPersonasConvive(String personasConvive) {
         this.personasConvive = personasConvive;
     }
 
@@ -134,11 +134,11 @@ public class Paciente {
         this.empleo = empleo;
     }
 
-    public int getAnhosEmpleo() {
+    public String getAnhosEmpleo() {
         return anhosEmpleo;
     }
 
-    public void setAnhosEmpleo(int anhosEmpleo) {
+    public void setAnhosEmpleo(String anhosEmpleo) {
         this.anhosEmpleo = anhosEmpleo;
     }
 

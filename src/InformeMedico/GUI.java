@@ -1,6 +1,11 @@
 package InformeMedico;
 
+import file_manager.FileManager;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -8,6 +13,7 @@ import java.io.File;
  */
 public class GUI extends javax.swing.JFrame {
     Paciente paciente;
+    ArrayList<String> datosPaciente=new ArrayList<>();
     /**
      * Creates new form GUI
      */
@@ -149,11 +155,53 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_datosPacienteMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        File archivo = new File("src/informesMedicos/data.dat");
-        
-        
+       try {
+            extraerDatosPaciente();
+            //System.out.println(FileManager.filesList());
+            if(FileManager.exists("datosPacientes.json")){
+                System.out.println("Esta Paciente ya tiene un informe");
+            }else{
+                    FileManager.saveFile("datosPacientes"+paciente.getNombre(), datosPaciente);
+            }
+        } catch (IOException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void extraerDatosPaciente(){
+        if(paciente.getNombre() != null)
+            datosPaciente.add(paciente.getNombre());        
+        if(paciente.getApellidos() != null)        
+            datosPaciente.add(paciente.getApellidos());          
+        if(paciente.getFecha() != null)   
+            datosPaciente.add(paciente.getFecha());       
+        if(paciente.getIdioma() != null)
+            datosPaciente.add(paciente.getIdioma());       
+        if(paciente.getSexo() != null)
+            datosPaciente.add(paciente.getSexo());
+        if(paciente.getResidencia() != null)
+            datosPaciente.add(paciente.getResidencia());
+        if(paciente.getTrabajo() != null)
+            datosPaciente.add(paciente.getTrabajo());
+        if(paciente.getTelefono() != null)
+            datosPaciente.add(paciente.getTelefono());
+        if(paciente.getCorreo() != null)
+            datosPaciente.add(paciente.getCorreo());
+        if(paciente.getPersonasConvive() != null)
+            datosPaciente.add(paciente.getPersonasConvive());
+        if(paciente.getTipoVivienda() != null)
+            datosPaciente.add(paciente.getTipoVivienda());
+        if(paciente.getTipoMascota() != null)
+            datosPaciente.add(paciente.getTipoMascota());
+        if(paciente.getEmpleo() != null)
+            datosPaciente.add(paciente.getEmpleo());
+        if(paciente.getAnhosEmpleo() != null)
+            datosPaciente.add(paciente.getAnhosEmpleo());
+        if(paciente.getEmpleosRiego() != null)
+            datosPaciente.add(paciente.getEmpleosRiego());
+       
+    }
+    
     public Paciente getPaciente() {
         return paciente;
     }
