@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package InformeMedico;
 
 /**
@@ -10,12 +5,13 @@ package InformeMedico;
  * @author munchi
  */
 public class GUI extends javax.swing.JFrame {
-
+    Paciente paciente;
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        paciente = new Paciente();
     }
 
     /**
@@ -27,6 +23,9 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         pacienteOpcionMenu = new javax.swing.JMenu();
         datosPacienteMenuItem = new javax.swing.JMenuItem();
@@ -38,6 +37,19 @@ public class GUI extends javax.swing.JFrame {
         opcionInfoMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tlwg Typist", 1, 24)); // NOI18N
+        jLabel1.setText("DAD1.2 INFORME MEDICO");
+
+        jButton1.setText("Generar Informe");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Nimbus Mono L", 2, 12)); // NOI18N
+        jLabel2.setText("Guzmán Martínez Santos");
 
         pacienteOpcionMenu.setText("Paciente");
 
@@ -87,18 +99,40 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 489, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(78, 78, 78))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void nacimientoMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nacimientoMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        Nacimiento nacimiento = new Nacimiento();
+        nacimiento.setVisible(true);
+        nacimiento.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_nacimientoMenuItem1ActionPerformed
 
     private void salirMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirMenuItemActionPerformed
@@ -106,12 +140,26 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_salirMenuItemActionPerformed
 
     private void datosPacienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datosPacienteMenuItemActionPerformed
-        DatosPaciente datosPaciente = new DatosPaciente();
+        DatosPaciente datosPaciente = new DatosPaciente(paciente);
         datosPaciente.setVisible(true);//abre la ventana
         datosPaciente.setLocationRelativeTo(null);//hace que La ventana salga Centrada
         this.dispose();//hace que la ventana se cierre al abirir la otra
     }//GEN-LAST:event_datosPacienteMenuItemActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -152,6 +200,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem datosPacienteMenuItem;
     private javax.swing.JMenuItem historialFamiliarMenuItem;
     private javax.swing.JMenuItem historialSaludMenuItem;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem nacimientoMenuItem1;
     private javax.swing.JMenu opcionInfoMenu;

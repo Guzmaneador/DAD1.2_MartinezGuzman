@@ -8,11 +8,13 @@ import javax.swing.WindowConstants;
  */
 public class DatosPaciente extends javax.swing.JFrame {
 
+    Paciente paciente;
     /**
      * Creates new form DatosPersonales
      */
-    public DatosPaciente() {
+    public DatosPaciente(Paciente paciente) {
         initComponents();
+        this.paciente=paciente;
     }
 
     /**
@@ -33,7 +35,6 @@ public class DatosPaciente extends javax.swing.JFrame {
         nombreLabel = new javax.swing.JLabel();
         apellidosTextField = new javax.swing.JTextField();
         nombreTextField = new javax.swing.JTextField();
-        fechaNacimientoTextField = new javax.swing.JTextField();
         nacimientoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         idiomasList = new javax.swing.JList<>();
@@ -41,6 +42,7 @@ public class DatosPaciente extends javax.swing.JFrame {
         MasculinoRadioButton = new javax.swing.JRadioButton();
         femeninoRadioButton = new javax.swing.JRadioButton();
         sexoLabel = new javax.swing.JLabel();
+        nacimientoSpinner = new javax.swing.JSpinner();
         contactoPanel = new javax.swing.JPanel();
         tituloContactoLabe7 = new javax.swing.JLabel();
         residenciaLabel = new javax.swing.JLabel();
@@ -73,13 +75,13 @@ public class DatosPaciente extends javax.swing.JFrame {
         borrarButton = new javax.swing.JButton();
         guardarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -89,6 +91,12 @@ public class DatosPaciente extends javax.swing.JFrame {
         apellidosLabel.setText("Apellidos:");
 
         nombreLabel.setText("Nombre:");
+
+        apellidosTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidosTextFieldActionPerformed(evt);
+            }
+        });
 
         nombreTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +123,8 @@ public class DatosPaciente extends javax.swing.JFrame {
 
         sexoLabel.setText("Sexo:");
 
+        nacimientoSpinner.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_YEAR));
+
         javax.swing.GroupLayout personalesPanelLayout = new javax.swing.GroupLayout(personalesPanel);
         personalesPanel.setLayout(personalesPanelLayout);
         personalesPanelLayout.setHorizontalGroup(
@@ -138,11 +148,11 @@ public class DatosPaciente extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(femeninoRadioButton))
                             .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(apellidosTextField)
-                                .addComponent(nombreTextField)
-                                .addComponent(fechaNacimientoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(192, Short.MAX_VALUE))
+                                .addComponent(apellidosTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                .addComponent(nombreTextField))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nacimientoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         personalesPanelLayout.setVerticalGroup(
             personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +170,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nacimientoLabel)
-                    .addComponent(fechaNacimientoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nacimientoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(personalesPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
@@ -173,7 +183,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                     .addComponent(MasculinoRadioButton)
                     .addComponent(femeninoRadioButton)
                     .addComponent(sexoLabel))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Personales", personalesPanel);
@@ -245,7 +255,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                 .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correoLabel)
                     .addComponent(correoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Contacto", contactoPanel);
@@ -318,7 +328,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)
                                 .addComponent(chaletRadioButton))
                             .addComponent(mascotasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,6 +421,11 @@ public class DatosPaciente extends javax.swing.JFrame {
         });
 
         guardarButton.setText("Guardar");
+        guardarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -473,10 +488,11 @@ public class DatosPaciente extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         
         GUI gui = new GUI();
+        gui.setPaciente(paciente);
         gui.setVisible(true);
         gui.setLocationRelativeTo(null);
         this.dispose();
-        gui.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+//        gui.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     
     }//GEN-LAST:event_formWindowClosing
 
@@ -484,41 +500,53 @@ public class DatosPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosed
 
+    private void apellidosTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidosTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidosTextFieldActionPerformed
+
+    private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
+        paciente.setNombre(nombreTextField.getText());
+        paciente.setApellidos(apellidosTextField.getText());
+        paciente.setFecha(nacimientoSpinner.toString());//provar con value
+        paciente.setIdioma(idiomasList.getSelectedValue());
+        
+    }//GEN-LAST:event_guardarButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DatosPaciente().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new DatosPaciente().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton MasculinoRadioButton;
@@ -540,7 +568,6 @@ public class DatosPaciente extends javax.swing.JFrame {
     private javax.swing.JTextField empleoTextField;
     private javax.swing.JLabel empleosRiesgoLabel;
     private javax.swing.JTextField empleosRiesgoTextField;
-    private javax.swing.JTextField fechaNacimientoTextField;
     private javax.swing.JRadioButton femeninoRadioButton;
     private javax.swing.JButton guardarButton;
     private javax.swing.JLabel idiomaLabel;
@@ -553,6 +580,7 @@ public class DatosPaciente extends javax.swing.JFrame {
     private javax.swing.JCheckBox mascotasCheckBox;
     private javax.swing.JTextField mascotasTextField;
     private javax.swing.JLabel nacimientoLabel;
+    private javax.swing.JSpinner nacimientoSpinner;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
     private javax.swing.JPanel personalesPanel;
