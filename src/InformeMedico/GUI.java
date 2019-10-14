@@ -27,51 +27,90 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        barraMenu = new javax.swing.JMenuBar();
+        pacienteOpcionMenu = new javax.swing.JMenu();
+        datosPacienteMenuItem = new javax.swing.JMenuItem();
+        nacimientoMenuItem1 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        historialSaludMenuItem = new javax.swing.JMenuItem();
+        historialFamiliarMenuItem = new javax.swing.JMenuItem();
+        salirMenuItem = new javax.swing.JMenuItem();
+        opcionInfoMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("File");
+        pacienteOpcionMenu.setText("Paciente");
 
-        jMenu3.setText("jMenu3");
+        datosPacienteMenuItem.setText("Datos Paciente");
+        datosPacienteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datosPacienteMenuItemActionPerformed(evt);
+            }
+        });
+        pacienteOpcionMenu.add(datosPacienteMenuItem);
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu3.add(jMenuItem2);
+        nacimientoMenuItem1.setText("Nacimiento");
+        nacimientoMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nacimientoMenuItem1ActionPerformed(evt);
+            }
+        });
+        pacienteOpcionMenu.add(nacimientoMenuItem1);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu3.add(jMenuItem3);
+        jMenu4.setText("Historial");
 
-        jMenu1.add(jMenu3);
+        historialSaludMenuItem.setText("Historial de salud");
+        jMenu4.add(historialSaludMenuItem);
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
+        historialFamiliarMenuItem.setText("Historial familiar");
+        jMenu4.add(historialFamiliarMenuItem);
 
-        jMenuBar1.add(jMenu1);
+        pacienteOpcionMenu.add(jMenu4);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        salirMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, java.awt.event.InputEvent.CTRL_MASK));
+        salirMenuItem.setText("Salir");
+        salirMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirMenuItemActionPerformed(evt);
+            }
+        });
+        pacienteOpcionMenu.add(salirMenuItem);
 
-        setJMenuBar(jMenuBar1);
+        barraMenu.add(pacienteOpcionMenu);
+
+        opcionInfoMenu.setText("Info");
+        barraMenu.add(opcionInfoMenu);
+
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 489, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
+            .addGap(0, 376, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nacimientoMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nacimientoMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nacimientoMenuItem1ActionPerformed
+
+    private void salirMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirMenuItemActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirMenuItemActionPerformed
+
+    private void datosPacienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datosPacienteMenuItemActionPerformed
+        DatosPaciente datosPaciente = new DatosPaciente();
+        datosPaciente.setVisible(true);//abre la ventana
+        datosPaciente.setLocationRelativeTo(null);//hace que La ventana salga Centrada
+        this.dispose();//hace que la ventana se cierre al abirir la otra
+    }//GEN-LAST:event_datosPacienteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,12 +148,14 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JMenuItem datosPacienteMenuItem;
+    private javax.swing.JMenuItem historialFamiliarMenuItem;
+    private javax.swing.JMenuItem historialSaludMenuItem;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem nacimientoMenuItem1;
+    private javax.swing.JMenu opcionInfoMenu;
+    private javax.swing.JMenu pacienteOpcionMenu;
+    private javax.swing.JMenuItem salirMenuItem;
     // End of variables declaration//GEN-END:variables
 }
