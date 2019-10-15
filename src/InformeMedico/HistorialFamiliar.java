@@ -13,6 +13,8 @@ public class HistorialFamiliar extends javax.swing.JFrame {
         initComponents();
         this.paciente=paciente;
         alergiasPanel.setVisible(false);
+        vacunasPanel.setVisible(false);
+
     }
 
     /**
@@ -25,17 +27,37 @@ public class HistorialFamiliar extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         siAlergiasRadioButton = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        noAlergiasRadioButton = new javax.swing.JRadioButton();
         alergiasPanel = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        LecheCheckBox = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
+        cacahuetesBox = new javax.swing.JCheckBox();
+        sojaBox = new javax.swing.JCheckBox();
+        lacteosBox = new javax.swing.JCheckBox();
+        mariscoBox = new javax.swing.JCheckBox();
+        penicilinaBox = new javax.swing.JCheckBox();
+        otrosBox = new javax.swing.JCheckBox();
+        alergiasTextField = new javax.swing.JTextField();
+        latexBox = new javax.swing.JCheckBox();
+        VacunasLabel = new javax.swing.JLabel();
+        siVacunasRadioButton = new javax.swing.JRadioButton();
+        noVacunasRadioButton = new javax.swing.JRadioButton();
+        vacunasPanel = new javax.swing.JPanel();
+        rabicaBox = new javax.swing.JCheckBox();
+        viruelaBox = new javax.swing.JCheckBox();
+        sarampionBox = new javax.swing.JCheckBox();
+        virusBox = new javax.swing.JCheckBox();
+        rubeolaBox = new javax.swing.JCheckBox();
+        otrasVacunasBox = new javax.swing.JCheckBox();
+        vacunasTextField = new javax.swing.JTextField();
+        fiebreBox = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        enfermedadesArea = new javax.swing.JTextArea();
+        borrarButtom = new javax.swing.JToggleButton();
+        guardarButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -57,41 +79,51 @@ public class HistorialFamiliar extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("No");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(noAlergiasRadioButton);
+        noAlergiasRadioButton.setSelected(true);
+        noAlergiasRadioButton.setText("No");
+        noAlergiasRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                noAlergiasRadioButtonActionPerformed(evt);
             }
         });
 
+        alergiasPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         alergiasPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 alergiasPanelComponentHidden(evt);
             }
         });
 
-        jCheckBox1.setText("Cacahuetes");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cacahuetesBox.setText("Cacahuetes");
+        cacahuetesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cacahuetesBoxActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Soja");
+        sojaBox.setText("Soja");
 
-        LecheCheckBox.setText("Lacteos");
-        LecheCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        lacteosBox.setText("Lacteos");
+        lacteosBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LecheCheckBoxActionPerformed(evt);
+                lacteosBoxActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("Marisco");
+        mariscoBox.setText("Marisco");
 
-        jCheckBox5.setText("Penicilina");
+        penicilinaBox.setText("Penicilina");
 
-        jCheckBox6.setText("Otros");
+        otrosBox.setText("Otros:");
+
+        alergiasTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alergiasTextFieldActionPerformed(evt);
+            }
+        });
+
+        latexBox.setText("Latex");
 
         javax.swing.GroupLayout alergiasPanelLayout = new javax.swing.GroupLayout(alergiasPanel);
         alergiasPanel.setLayout(alergiasPanelLayout);
@@ -100,55 +132,200 @@ public class HistorialFamiliar extends javax.swing.JFrame {
             .addGroup(alergiasPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(alergiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(cacahuetesBox)
+                    .addComponent(sojaBox))
                 .addGap(18, 18, 18)
                 .addGroup(alergiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox4)
-                    .addComponent(LecheCheckBox))
+                    .addComponent(mariscoBox)
+                    .addComponent(lacteosBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(alergiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox5))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addGroup(alergiasPanelLayout.createSequentialGroup()
+                        .addComponent(otrosBox)
+                        .addGap(18, 18, 18)
+                        .addComponent(alergiasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(alergiasPanelLayout.createSequentialGroup()
+                        .addComponent(penicilinaBox)
+                        .addGap(28, 28, 28)
+                        .addComponent(latexBox)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         alergiasPanelLayout.setVerticalGroup(
             alergiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(alergiasPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(alergiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(LecheCheckBox)
-                    .addComponent(jCheckBox5))
+                    .addComponent(cacahuetesBox)
+                    .addComponent(lacteosBox)
+                    .addComponent(penicilinaBox)
+                    .addComponent(latexBox))
                 .addGap(18, 18, 18)
                 .addGroup(alergiasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox6))
+                    .addComponent(sojaBox)
+                    .addComponent(mariscoBox)
+                    .addComponent(otrosBox)
+                    .addComponent(alergiasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        VacunasLabel.setText("Vacunas:");
+
+        buttonGroup2.add(siVacunasRadioButton);
+        siVacunasRadioButton.setText("Sí");
+        siVacunasRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                siVacunasRadioButtonActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(noVacunasRadioButton);
+        noVacunasRadioButton.setSelected(true);
+        noVacunasRadioButton.setText("No");
+        noVacunasRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noVacunasRadioButtonActionPerformed(evt);
+            }
+        });
+
+        vacunasPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        vacunasPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                vacunasPanelComponentHidden(evt);
+            }
+        });
+
+        rabicaBox.setText("Anti-Rabica");
+        rabicaBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rabicaBoxActionPerformed(evt);
+            }
+        });
+
+        viruelaBox.setText("Viruela");
+
+        sarampionBox.setText("Sarampion");
+        sarampionBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sarampionBoxActionPerformed(evt);
+            }
+        });
+
+        virusBox.setText("Rotavirus");
+
+        rubeolaBox.setText("Rubeola");
+
+        otrasVacunasBox.setText("Otras:");
+
+        vacunasTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vacunasTextFieldActionPerformed(evt);
+            }
+        });
+
+        fiebreBox.setText("Fiebre Amarilla");
+
+        javax.swing.GroupLayout vacunasPanelLayout = new javax.swing.GroupLayout(vacunasPanel);
+        vacunasPanel.setLayout(vacunasPanelLayout);
+        vacunasPanelLayout.setHorizontalGroup(
+            vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vacunasPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rabicaBox)
+                    .addComponent(viruelaBox))
+                .addGap(18, 18, 18)
+                .addGroup(vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(virusBox)
+                    .addComponent(sarampionBox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(vacunasPanelLayout.createSequentialGroup()
+                        .addComponent(otrasVacunasBox)
+                        .addGap(18, 18, 18)
+                        .addComponent(vacunasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(vacunasPanelLayout.createSequentialGroup()
+                        .addComponent(rubeolaBox)
+                        .addGap(33, 33, 33)
+                        .addComponent(fiebreBox)))
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        vacunasPanelLayout.setVerticalGroup(
+            vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vacunasPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rabicaBox)
+                    .addComponent(sarampionBox)
+                    .addComponent(rubeolaBox)
+                    .addComponent(fiebreBox))
+                .addGap(18, 18, 18)
+                .addGroup(vacunasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viruelaBox)
+                    .addComponent(virusBox)
+                    .addComponent(otrasVacunasBox)
+                    .addComponent(vacunasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel3.setText("Enfermedades Frecuentes:");
+
+        enfermedadesArea.setColumns(20);
+        enfermedadesArea.setRows(5);
+        jScrollPane1.setViewportView(enfermedadesArea);
+
+        borrarButtom.setText("Borrar");
+
+        guardarButton.setText("Guardar");
+        guardarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(38, 38, 38)
+                        .addComponent(siAlergiasRadioButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(VacunasLabel)
+                        .addGap(37, 37, 37)
+                        .addComponent(siVacunasRadioButton)))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(noVacunasRadioButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(noAlergiasRadioButton)))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2)
-                        .addGap(38, 38, 38)
-                        .addComponent(siAlergiasRadioButton)
-                        .addGap(42, 42, 42)
-                        .addComponent(jRadioButton2)))
-                .addContainerGap(101, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(alergiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(201, 201, 201)
+                                .addComponent(borrarButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(132, 132, 132)
+                                .addComponent(guardarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(100, 100, 100)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(vacunasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(alergiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,10 +336,25 @@ public class HistorialFamiliar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(siAlergiasRadioButton)
-                    .addComponent(jRadioButton2))
+                    .addComponent(noAlergiasRadioButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alergiasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VacunasLabel)
+                    .addComponent(siVacunasRadioButton)
+                    .addComponent(noVacunasRadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vacunasPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(borrarButtom)
+                    .addComponent(guardarButton))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,65 +376,142 @@ public class HistorialFamiliar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_alergiasPanelComponentHidden
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void noAlergiasRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noAlergiasRadioButtonActionPerformed
         alergiasPanel.setVisible(false);
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_noAlergiasRadioButtonActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cacahuetesBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cacahuetesBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cacahuetesBoxActionPerformed
 
-    private void LecheCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LecheCheckBoxActionPerformed
+    private void lacteosBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lacteosBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LecheCheckBoxActionPerformed
+    }//GEN-LAST:event_lacteosBoxActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(HistorialFamiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(HistorialFamiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(HistorialFamiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(HistorialFamiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new HistorialFamiliar().setVisible(true);
-//            }
-//        });
-//    }
+    private void siVacunasRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siVacunasRadioButtonActionPerformed
+        vacunasPanel.setVisible(true);
+
+    }//GEN-LAST:event_siVacunasRadioButtonActionPerformed
+
+    private void noVacunasRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noVacunasRadioButtonActionPerformed
+        vacunasPanel.setVisible(false);
+
+    }//GEN-LAST:event_noVacunasRadioButtonActionPerformed
+
+    private void rabicaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rabicaBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rabicaBoxActionPerformed
+
+    private void sarampionBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sarampionBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sarampionBoxActionPerformed
+
+    private void vacunasPanelComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_vacunasPanelComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vacunasPanelComponentHidden
+
+    private void alergiasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alergiasTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alergiasTextFieldActionPerformed
+
+    private void vacunasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vacunasTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vacunasTextFieldActionPerformed
+
+    private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
+        String alergias="";
+        if(siAlergiasRadioButton.isSelected()){
+            alergias=analizarAlergias();
+        }else if(noAlergiasRadioButton.isSelected()){
+            alergias="No tiene Alergias";
+        }
+        paciente.setAlergias(alergias);
+        //--VACUNAS--//
+        String vacunas="";
+        if(siVacunasRadioButton.isSelected()){
+            vacunas = analizarVacunas();
+        }else if(noVacunasRadioButton.isSelected()){
+            vacunas = "Nos esta vacunado";
+        }
+        paciente.setVacunas(vacunas);
+        
+        paciente.setEnfermedadesFrecuentes(enfermedadesArea.getText());
+        
+        
+    }//GEN-LAST:event_guardarButtonActionPerformed
+    public String analizarAlergias(){
+        //ALERGIAS///
+        String alergias=" ";
+        if (cacahuetesBox.isSelected())
+            alergias += "cacahuetes, ";
+        if(lacteosBox.isSelected())
+            alergias += "lacteos, ";
+        if(latexBox.isSelected())
+            alergias += "latex, ";
+        if(sojaBox.isSelected())
+            alergias += "soja, ";
+        if(mariscoBox.isSelected())
+            alergias += "marisco, ";
+        if(penicilinaBox.isSelected())
+            alergias += "penicilina, ";
+        if(otrosBox.isSelected())
+            alergias += alergiasTextField.getText();
+        
+        return alergias;
+    }
+    public String analizarVacunas(){
+        String vacuna="";
+        if(rabicaBox.isSelected())
+            vacuna += "rabica, ";
+        if(viruelaBox.isSelected())
+            vacuna += "viruela, ";
+        if(sarampionBox.isSelected())
+            vacuna += "sarampion, ";
+        if(virusBox.isSelected())
+            vacuna += "rotavirus, ";
+        if(rubeolaBox.isSelected())
+            vacuna += "rubeola, ";
+        if(fiebreBox.isSelected())
+            vacuna += "fiebre amarilla, ";
+        if(otrasVacunasBox.isSelected())
+            vacuna += vacunasTextField.getText();
+            
+        
+        return vacuna;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox LecheCheckBox;
+    private javax.swing.JLabel VacunasLabel;
     private javax.swing.JPanel alergiasPanel;
+    private javax.swing.JTextField alergiasTextField;
+    private javax.swing.JToggleButton borrarButtom;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JCheckBox cacahuetesBox;
+    private javax.swing.JTextArea enfermedadesArea;
+    private javax.swing.JCheckBox fiebreBox;
+    private javax.swing.JToggleButton guardarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox lacteosBox;
+    private javax.swing.JCheckBox latexBox;
+    private javax.swing.JCheckBox mariscoBox;
+    private javax.swing.JRadioButton noAlergiasRadioButton;
+    private javax.swing.JRadioButton noVacunasRadioButton;
+    private javax.swing.JCheckBox otrasVacunasBox;
+    private javax.swing.JCheckBox otrosBox;
+    private javax.swing.JCheckBox penicilinaBox;
+    private javax.swing.JCheckBox rabicaBox;
+    private javax.swing.JCheckBox rubeolaBox;
+    private javax.swing.JCheckBox sarampionBox;
     private javax.swing.JRadioButton siAlergiasRadioButton;
+    private javax.swing.JRadioButton siVacunasRadioButton;
+    private javax.swing.JCheckBox sojaBox;
+    private javax.swing.JPanel vacunasPanel;
+    private javax.swing.JTextField vacunasTextField;
+    private javax.swing.JCheckBox viruelaBox;
+    private javax.swing.JCheckBox virusBox;
     // End of variables declaration//GEN-END:variables
 }

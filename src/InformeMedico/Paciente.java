@@ -21,6 +21,10 @@ public class Paciente {
     String empleo;
     String anhosEmpleo;
     String empleosRiego;
+    
+    String vacunas;
+    String alergias;
+    String enfermedadesFrecuentes;
 
     public String getNombre() {
         return nombre;
@@ -148,6 +152,32 @@ public class Paciente {
 
     public void setEmpleosRiego(String empleosRiego) {
         this.empleosRiego = empleosRiego;
+    }
+    
+    //-------------Historial medico--------------///
+
+    public String getVacunas() {
+        return vacunas;
+    }
+
+    public void setVacunas(String vacunas) {
+        this.vacunas = vacunas;
+    }
+
+    public String getAlergias() {
+        return alergias;
+    }
+
+    public void setAlergias(String alergias) {
+        this.alergias = alergias;
+    }
+
+    public String getEnfermedadesFrecuentes() {
+        return enfermedadesFrecuentes;
+    }
+
+    public void setEnfermedadesFrecuentes(String enfermedadesFrecuentes) {
+        this.enfermedadesFrecuentes = enfermedadesFrecuentes;
     }
     
    

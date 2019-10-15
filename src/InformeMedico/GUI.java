@@ -232,6 +232,12 @@ public class GUI extends javax.swing.JFrame {
             datosPaciente.add(paciente.getAnhosEmpleo());
         if(paciente.getEmpleosRiego() != null)
             datosPaciente.add(paciente.getEmpleosRiego());
+        if(paciente.getAlergias() != null)
+            datosPaciente.add(paciente.getAlergias());
+        if(paciente.getVacunas() != null)
+            datosPaciente.add(paciente.getVacunas());
+        if(paciente.getEnfermedadesFrecuentes() != null)
+            datosPaciente.add(paciente.getEnfermedadesFrecuentes());
        
     }
     
