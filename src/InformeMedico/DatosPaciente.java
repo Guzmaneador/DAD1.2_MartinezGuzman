@@ -15,6 +15,7 @@ public class DatosPaciente extends javax.swing.JFrame {
     public DatosPaciente(Paciente paciente) {
         initComponents();
         this.paciente=paciente;
+        rellenrFormulario();
     }
 
     /**
@@ -42,17 +43,7 @@ public class DatosPaciente extends javax.swing.JFrame {
         MasculinoRadioButton = new javax.swing.JRadioButton();
         femeninoRadioButton = new javax.swing.JRadioButton();
         sexoLabel = new javax.swing.JLabel();
-        nacimientoSpinner = new javax.swing.JSpinner();
-        contactoPanel = new javax.swing.JPanel();
-        tituloContactoLabe7 = new javax.swing.JLabel();
-        residenciaLabel = new javax.swing.JLabel();
-        trabajoLabel = new javax.swing.JLabel();
-        telefonoLabel = new javax.swing.JLabel();
-        correoLabel = new javax.swing.JLabel();
-        residenciaTextField = new javax.swing.JTextField();
-        trabajoTextField = new javax.swing.JTextField();
-        telefonoTextField = new javax.swing.JTextField();
-        correoTextField = new javax.swing.JTextField();
+        fechaTextField = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         conviveLabel = new javax.swing.JLabel();
         viviendaLabel = new javax.swing.JLabel();
@@ -64,6 +55,16 @@ public class DatosPaciente extends javax.swing.JFrame {
         tituloHogarLabel = new javax.swing.JLabel();
         mascotasCheckBox = new javax.swing.JCheckBox();
         mascotasTextField = new javax.swing.JTextField();
+        contactoPanel = new javax.swing.JPanel();
+        tituloContactoLabe7 = new javax.swing.JLabel();
+        residenciaLabel = new javax.swing.JLabel();
+        trabajoLabel = new javax.swing.JLabel();
+        telefonoLabel = new javax.swing.JLabel();
+        correoLabel = new javax.swing.JLabel();
+        residenciaTextField = new javax.swing.JTextField();
+        trabajoTextField = new javax.swing.JTextField();
+        telefonoTextField = new javax.swing.JTextField();
+        correoTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         tituloTrabajoLabel = new javax.swing.JLabel();
         empleoLabel = new javax.swing.JLabel();
@@ -92,12 +93,14 @@ public class DatosPaciente extends javax.swing.JFrame {
 
         nombreLabel.setText("Nombre:");
 
+        apellidosTextField.setText("  ");
         apellidosTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 apellidosTextFieldActionPerformed(evt);
             }
         });
 
+        nombreTextField.setText("  ");
         nombreTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreTextFieldActionPerformed(evt);
@@ -111,6 +114,7 @@ public class DatosPaciente extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        idiomasList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(idiomasList);
 
         idiomaLabel.setText("Idioma:");
@@ -123,7 +127,12 @@ public class DatosPaciente extends javax.swing.JFrame {
 
         sexoLabel.setText("Sexo:");
 
-        nacimientoSpinner.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_YEAR));
+        fechaTextField.setText("  ");
+        fechaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaTextFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout personalesPanelLayout = new javax.swing.GroupLayout(personalesPanel);
         personalesPanel.setLayout(personalesPanelLayout);
@@ -147,12 +156,12 @@ public class DatosPaciente extends javax.swing.JFrame {
                                 .addComponent(MasculinoRadioButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(femeninoRadioButton))
-                            .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(apellidosTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addComponent(nombreTextField))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nacimientoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(118, Short.MAX_VALUE))
+                            .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(fechaTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(apellidosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                .addComponent(nombreTextField, javax.swing.GroupLayout.Alignment.LEADING)))))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         personalesPanelLayout.setVerticalGroup(
             personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +179,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nacimientoLabel)
-                    .addComponent(nacimientoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(personalesPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
@@ -183,82 +192,10 @@ public class DatosPaciente extends javax.swing.JFrame {
                     .addComponent(MasculinoRadioButton)
                     .addComponent(femeninoRadioButton)
                     .addComponent(sexoLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Personales", personalesPanel);
-
-        tituloContactoLabe7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        tituloContactoLabe7.setText("DATOS DE CONTACTO DEL PACIENTE");
-
-        residenciaLabel.setText("Domicilio De Residencia:");
-
-        trabajoLabel.setText("Domicilio de Trabajo:");
-
-        telefonoLabel.setText("Telefono:");
-
-        correoLabel.setText("Correo Electronico:");
-
-        residenciaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                residenciaTextFieldActionPerformed(evt);
-            }
-        });
-
-        correoTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                correoTextFieldActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout contactoPanelLayout = new javax.swing.GroupLayout(contactoPanel);
-        contactoPanel.setLayout(contactoPanelLayout);
-        contactoPanelLayout.setHorizontalGroup(
-            contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contactoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tituloContactoLabe7)
-                    .addGroup(contactoPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(telefonoLabel)
-                            .addComponent(trabajoLabel)
-                            .addComponent(residenciaLabel)
-                            .addComponent(correoLabel))
-                        .addGap(33, 33, 33)
-                        .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(residenciaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                            .addComponent(trabajoTextField)
-                            .addComponent(telefonoTextField)
-                            .addComponent(correoTextField))))
-                .addContainerGap(179, Short.MAX_VALUE))
-        );
-        contactoPanelLayout.setVerticalGroup(
-            contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contactoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloContactoLabe7)
-                .addGap(37, 37, 37)
-                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residenciaLabel)
-                    .addComponent(residenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(trabajoLabel)
-                    .addComponent(trabajoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefonoLabel)
-                    .addComponent(telefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(correoLabel)
-                    .addComponent(correoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Contacto", contactoPanel);
 
         conviveLabel.setText("Personas con las que convive:");
 
@@ -355,6 +292,93 @@ public class DatosPaciente extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Hogar", jPanel3);
 
+        tituloContactoLabe7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        tituloContactoLabe7.setText("DATOS DE CONTACTO DEL PACIENTE");
+
+        residenciaLabel.setText("Domicilio De Residencia:");
+
+        trabajoLabel.setText("Domicilio de Trabajo:");
+
+        telefonoLabel.setText("Telefono:");
+
+        correoLabel.setText("Correo Electronico:");
+
+        residenciaTextField.setText(" ");
+        residenciaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                residenciaTextFieldActionPerformed(evt);
+            }
+        });
+
+        trabajoTextField.setText(" ");
+        trabajoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trabajoTextFieldActionPerformed(evt);
+            }
+        });
+
+        telefonoTextField.setText(" ");
+        telefonoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefonoTextFieldActionPerformed(evt);
+            }
+        });
+
+        correoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                correoTextFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout contactoPanelLayout = new javax.swing.GroupLayout(contactoPanel);
+        contactoPanel.setLayout(contactoPanelLayout);
+        contactoPanelLayout.setHorizontalGroup(
+            contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloContactoLabe7)
+                    .addGroup(contactoPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(telefonoLabel)
+                            .addComponent(trabajoLabel)
+                            .addComponent(residenciaLabel)
+                            .addComponent(correoLabel))
+                        .addGap(33, 33, 33)
+                        .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(residenciaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(trabajoTextField)
+                            .addComponent(telefonoTextField)
+                            .addComponent(correoTextField))))
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+        contactoPanelLayout.setVerticalGroup(
+            contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tituloContactoLabe7)
+                .addGap(37, 37, 37)
+                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(residenciaLabel)
+                    .addComponent(residenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(trabajoLabel)
+                    .addComponent(trabajoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telefonoLabel)
+                    .addComponent(telefonoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(correoLabel)
+                    .addComponent(correoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Contacto", contactoPanel);
+
         tituloTrabajoLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         tituloTrabajoLabel.setText("DATOS SOBRE EL TRABAJO DEL PACIENTE");
 
@@ -434,7 +458,7 @@ public class DatosPaciente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(108, 108, 108)
                 .addComponent(borrarButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(guardarButton)
                 .addGap(126, 126, 126))
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -507,7 +531,7 @@ public class DatosPaciente extends javax.swing.JFrame {
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         paciente.setNombre(nombreTextField.getText());
         paciente.setApellidos(apellidosTextField.getText());
-        paciente.setFecha(nacimientoSpinner.toString());//provar con value
+        paciente.setFecha(fechaTextField.getText());//provar con value
         paciente.setIdioma(idiomasList.getSelectedValue());
         if(MasculinoRadioButton.isSelected()){
             paciente.setSexo("Masculino");
@@ -519,7 +543,7 @@ public class DatosPaciente extends javax.swing.JFrame {
         paciente.setTrabajo(trabajoTextField.getText());
         paciente.setTelefono(telefonoTextField.getText());
         paciente.setCorreo(correoTextField.getText());
-        paciente.setPersonasConvive(conviveSpinner.toString());
+        paciente.setPersonasConvive(conviveSpinner.getValue().toString());
         if(chaletRadioButton.isSelected()){
             paciente.setTipoVivienda("Chalet");
         }else if(pisoRadioButton.isSelected()){
@@ -533,44 +557,45 @@ public class DatosPaciente extends javax.swing.JFrame {
             paciente.setTipoMascota(mascotasTextField.getText());
         }else{paciente.setTipoMascota("-");paciente.setMacotas(false);}
         
+        paciente.setEmpleo(empleoTextField.getText());
+        paciente.setAnhosEmpleo(añosSpinner.getValue().toString());
+        paciente.setEmpleosRiego(empleosRiesgoTextField.getText());
+        
+        
         
     }//GEN-LAST:event_guardarButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(DatosPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new DatosPaciente().setVisible(true);
-//            }
-//        });
-//    }
+    private void fechaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaTextFieldActionPerformed
+
+    private void trabajoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trabajoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trabajoTextFieldActionPerformed
+
+    private void telefonoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_telefonoTextFieldActionPerformed
+
+    public void rellenrFormulario(){
+        nombreTextField.setText(paciente.getNombre());
+        apellidosTextField.setText(paciente.getApellidos());
+        fechaTextField.setText(paciente.getFecha());
+        residenciaTextField.setText(paciente.getResidencia());
+        trabajoTextField.setText(paciente.getTrabajo());
+        telefonoTextField.setText(paciente.getTelefono());
+        correoTextField.setText(paciente.getCorreo());
+        if(paciente.getSexo().equals("Masculino")){
+            MasculinoRadioButton.setSelected(true);
+        }else if(paciente.getSexo().equals("Femenino")){
+            femeninoRadioButton.setSelected(true);
+        }
+        empleoTextField.setText(paciente.getEmpleo());
+        //añosSpinner.setValue(paciente.getAnhosEmpleo());
+        empleosRiesgoTextField.setText(paciente.getEmpleosRiego());
+        
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton MasculinoRadioButton;
@@ -592,6 +617,7 @@ public class DatosPaciente extends javax.swing.JFrame {
     private javax.swing.JTextField empleoTextField;
     private javax.swing.JLabel empleosRiesgoLabel;
     private javax.swing.JTextField empleosRiesgoTextField;
+    private javax.swing.JTextField fechaTextField;
     private javax.swing.JRadioButton femeninoRadioButton;
     private javax.swing.JButton guardarButton;
     private javax.swing.JLabel idiomaLabel;
@@ -604,7 +630,6 @@ public class DatosPaciente extends javax.swing.JFrame {
     private javax.swing.JCheckBox mascotasCheckBox;
     private javax.swing.JTextField mascotasTextField;
     private javax.swing.JLabel nacimientoLabel;
-    private javax.swing.JSpinner nacimientoSpinner;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
     private javax.swing.JPanel personalesPanel;

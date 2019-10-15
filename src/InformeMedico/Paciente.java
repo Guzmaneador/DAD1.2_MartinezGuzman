@@ -26,6 +26,28 @@ public class Paciente {
     String alergias;
     String enfermedadesFrecuentes;
 
+    public Paciente() {
+        this.nombre = " ";
+        this.Apellidos = " ";
+        this.fecha = " ";
+        this.idioma = " ";
+        this.sexo = " ";
+        this.residencia = " ";
+        this.trabajo = " ";
+        this.telefono = " ";
+        this.correo = " ";
+        this.personasConvive = " ";
+        this.tipoVivienda = " ";
+        this.macotas = false;
+        this.tipoMascota = " ";
+        this.empleo =" ";
+        this.anhosEmpleo = " ";
+        this.empleosRiego = " ";
+        this.vacunas = " ";
+        this.alergias = " ";
+        this.enfermedadesFrecuentes = " ";
+    }
+    
     public String getNombre() {
         return nombre;
     }

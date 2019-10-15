@@ -2,6 +2,7 @@ package InformeMedico;
 
 import file_manager.FileManager;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -31,10 +32,12 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        nombreFichero = new javax.swing.JTextField();
         barraMenu = new javax.swing.JMenuBar();
         pacienteOpcionMenu = new javax.swing.JMenu();
         datosPacienteMenuItem = new javax.swing.JMenuItem();
@@ -44,6 +47,8 @@ public class GUI extends javax.swing.JFrame {
         historialFamiliarMenuItem = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
         opcionInfoMenu = new javax.swing.JMenu();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +66,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel2.setText("Guzmán Martínez Santos");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InformeMedico/LogoCesar.jpg"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         pacienteOpcionMenu.setText("Paciente");
 
@@ -120,23 +130,27 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(78, 78, 78))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(123, 123, 123))))
+                        .addGap(123, 123, 123))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(173, 173, 173))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(nombreFichero, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +159,11 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(nombreFichero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -177,11 +193,11 @@ public class GUI extends javax.swing.JFrame {
        try {
             extraerDatosPaciente();
             //System.out.println(FileManager.filesList());
-            if(FileManager.exists("datosPacientes.json")){
+            //if(FileManager.exists("datosPacientes"+paciente.getNombre())){
                 System.out.println("Esta Paciente ya tiene un informe");
-            }else{
+            //}else{
                     FileManager.saveFile("datosPacientes"+paciente.getNombre(), datosPaciente);
-            }
+            //}
         } catch (IOException ex) {
                 Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -201,6 +217,14 @@ public class GUI extends javax.swing.JFrame {
         historialSalud.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_historialSaludMenuItemActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            obtenerDatosPaciente(nombreFichero.getText());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void extraerDatosPaciente(){
         if(paciente.getNombre() != null)
             datosPaciente.add(paciente.getNombre());        
@@ -237,6 +261,10 @@ public class GUI extends javax.swing.JFrame {
         if(paciente.getVacunas() != null)
             datosPaciente.add(paciente.getVacunas());
         if(paciente.getEnfermedadesFrecuentes() != null)
+            datosPaciente.add(paciente.getEnfermedadesFrecuentes());
+        
+            datosPaciente.add(paciente.getAlergias());
+            datosPaciente.add(paciente.getVacunas());
             datosPaciente.add(paciente.getEnfermedadesFrecuentes());
        
     }
@@ -285,6 +313,27 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void obtenerDatosPaciente(String fileName) throws FileNotFoundException{
+        ArrayList<String> datosFichero =FileManager.readFile(fileName);
+        paciente.setNombre(datosFichero.get(0));
+        paciente.setApellidos(datosFichero.get(1));
+        paciente.setFecha(datosFichero.get(2));
+        paciente.setIdioma(datosFichero.get(3));
+        paciente.setSexo(datosFichero.get(4));
+        paciente.setResidencia(datosFichero.get(5));
+        paciente.setTrabajo(datosFichero.get(6));
+        paciente.setTelefono(datosFichero.get(7));
+        paciente.setCorreo(datosFichero.get(8));
+        paciente.setPersonasConvive(datosFichero.get(9));
+        paciente.setTipoVivienda(datosFichero.get(10));
+       //paciente.setMacotas(datosFichero.get(11));
+        paciente.setTipoMascota(datosFichero.get(11));
+        ///-----
+        paciente.setAlergias(datosFichero.get(12));
+        paciente.setVacunas(datosFichero.get(13));
+        paciente.setEnfermedadesFrecuentes(datosFichero.get(14));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
@@ -296,7 +345,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuItem nacimientoMenuItem1;
+    private javax.swing.JTextField nombreFichero;
     private javax.swing.JMenu opcionInfoMenu;
     private javax.swing.JMenu pacienteOpcionMenu;
     private javax.swing.JMenuItem salirMenuItem;
