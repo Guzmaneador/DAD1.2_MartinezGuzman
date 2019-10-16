@@ -15,12 +15,18 @@ import java.util.logging.Logger;
 public class GUI extends javax.swing.JFrame {
     Paciente paciente;
     ArrayList<String> datosPaciente=new ArrayList<>();
+    String[] listaArchivos;
+
     /**
      * Creates new form GUI
      */
     public GUI() {
+        this.listaArchivos = FileManager.filesList();
         initComponents();
         paciente = new Paciente();
+        for (String archivo : listaArchivos) {
+            archivosComboBox.addItem(archivo);
+        }
     }
 
     /**
@@ -38,6 +44,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         nombreFichero = new javax.swing.JTextField();
+        archivosComboBox = new javax.swing.JComboBox<>();
         barraMenu = new javax.swing.JMenuBar();
         pacienteOpcionMenu = new javax.swing.JMenu();
         datosPacienteMenuItem = new javax.swing.JMenuItem();
@@ -51,6 +58,7 @@ public class GUI extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tlwg Typist", 1, 24)); // NOI18N
         jLabel1.setText("DAD1.2 INFORME MEDICO");
@@ -69,6 +77,12 @@ public class GUI extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        archivosComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                archivosComboBoxActionPerformed(evt);
             }
         });
 
@@ -149,8 +163,10 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addComponent(nombreFichero, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(archivosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombreFichero, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +175,9 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(archivosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(nombreFichero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,6 +243,14 @@ public class GUI extends javax.swing.JFrame {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void archivosComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivosComboBoxActionPerformed
+        String[] listaArchivos= FileManager.filesList();
+        for (String archivo : listaArchivos) {
+            
+        }
+        
+    }//GEN-LAST:event_archivosComboBoxActionPerformed
     private void extraerDatosPaciente(){
         if(paciente.getNombre() != null)
             datosPaciente.add(paciente.getNombre());        
@@ -262,10 +288,10 @@ public class GUI extends javax.swing.JFrame {
             datosPaciente.add(paciente.getVacunas());
         if(paciente.getEnfermedadesFrecuentes() != null)
             datosPaciente.add(paciente.getEnfermedadesFrecuentes());
-        
-            datosPaciente.add(paciente.getAlergias());
-            datosPaciente.add(paciente.getVacunas());
-            datosPaciente.add(paciente.getEnfermedadesFrecuentes());
+//        
+//            datosPaciente.add(paciente.getAlergias());
+//            datosPaciente.add(paciente.getVacunas());
+//            datosPaciente.add(paciente.getEnfermedadesFrecuentes());
        
     }
     
@@ -329,13 +355,17 @@ public class GUI extends javax.swing.JFrame {
         paciente.setTipoVivienda(datosFichero.get(10));
        //paciente.setMacotas(datosFichero.get(11));
         paciente.setTipoMascota(datosFichero.get(11));
+        paciente.setEmpleo(datosFichero.get(12));
+        paciente.setAnhosEmpleo(datosFichero.get(13));
+        paciente.setEmpleosRiego(datosFichero.get(14));
         ///-----
-        paciente.setAlergias(datosFichero.get(12));
-        paciente.setVacunas(datosFichero.get(13));
-        paciente.setEnfermedadesFrecuentes(datosFichero.get(14));
+        paciente.setAlergias(datosFichero.get(15));
+        paciente.setVacunas(datosFichero.get(16));
+        paciente.setEnfermedadesFrecuentes(datosFichero.get(17));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> archivosComboBox;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem datosPacienteMenuItem;
     private javax.swing.JMenuItem historialFamiliarMenuItem;

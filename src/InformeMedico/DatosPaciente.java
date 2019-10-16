@@ -77,6 +77,7 @@ public class DatosPaciente extends javax.swing.JFrame {
         guardarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -161,7 +162,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                                 .addComponent(fechaTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(apellidosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                                 .addComponent(nombreTextField, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         personalesPanelLayout.setVerticalGroup(
             personalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +352,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                             .addComponent(trabajoTextField)
                             .addComponent(telefonoTextField)
                             .addComponent(correoTextField))))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         contactoPanelLayout.setVerticalGroup(
             contactoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,7 +414,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                             .addComponent(añosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(empleoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                             .addComponent(empleosRiesgoTextField))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,7 +462,7 @@ public class DatosPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(guardarButton)
                 .addGap(126, 126, 126))
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,7 +538,7 @@ public class DatosPaciente extends javax.swing.JFrame {
             paciente.setSexo("Masculino");
         }else if(femeninoRadioButton.isSelected()){
             paciente.setSexo("Femenino");
-        }else{paciente.setSexo("NoEspecificado");}
+        }{paciente.setSexo("NoEspecificado");}
         
         paciente.setResidencia(residenciaTextField.getText());
         paciente.setTrabajo(trabajoTextField.getText());
@@ -555,7 +556,7 @@ public class DatosPaciente extends javax.swing.JFrame {
         if(mascotasCheckBox.isSelected()){
             paciente.setMacotas(true);
             paciente.setTipoMascota(mascotasTextField.getText());
-        }else{paciente.setTipoMascota("-");paciente.setMacotas(false);}
+        }else{paciente.setTipoMascota("No posee mascotas");paciente.setMacotas(false);}
         
         paciente.setEmpleo(empleoTextField.getText());
         paciente.setAnhosEmpleo(añosSpinner.getValue().toString());
@@ -593,6 +594,16 @@ public class DatosPaciente extends javax.swing.JFrame {
         empleoTextField.setText(paciente.getEmpleo());
         //añosSpinner.setValue(paciente.getAnhosEmpleo());
         empleosRiesgoTextField.setText(paciente.getEmpleosRiego());
+        
+        if(paciente.getTipoVivienda().equals("Chalet")){
+            chaletRadioButton.setSelected(true);
+        }else if(paciente.getTipoVivienda().equals("Piso")){
+            pisoRadioButton.setSelected(true);
+        }else if(paciente.getTipoVivienda().equals("Adosado")){
+            adosadoRadioButton.setSelected(true);
+
+            
+        }
         
         
     }
