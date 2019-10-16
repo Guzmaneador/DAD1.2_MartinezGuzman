@@ -36,12 +36,12 @@ public class Paciente {
         this.trabajo = " ";
         this.telefono = " ";
         this.correo = " ";
-        this.personasConvive = " ";
+        this.personasConvive = "0";
         this.tipoVivienda = " ";
         this.macotas = false;
         this.tipoMascota = " ";
         this.empleo =" ";
-        this.anhosEmpleo = " ";
+        this.anhosEmpleo = "0";
         this.empleosRiego = " ";
         this.vacunas = " ";
         this.alergias = " ";
