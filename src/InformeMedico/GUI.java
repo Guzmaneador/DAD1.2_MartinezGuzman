@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +46,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         archivosComboBox = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         pacienteOpcionMenu = new javax.swing.JMenu();
         datosPacienteMenuItem = new javax.swing.JMenuItem();
@@ -54,6 +56,7 @@ public class GUI extends javax.swing.JFrame {
         historialFamiliarMenuItem = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
         opcionInfoMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jTextField1.setText("jTextField1");
 
@@ -85,6 +88,8 @@ public class GUI extends javax.swing.JFrame {
                 archivosComboBoxActionPerformed(evt);
             }
         });
+
+        jButton3.setText("jButton3");
 
         pacienteOpcionMenu.setText("Paciente");
 
@@ -136,6 +141,15 @@ public class GUI extends javax.swing.JFrame {
         barraMenu.add(pacienteOpcionMenu);
 
         opcionInfoMenu.setText("Info");
+
+        jMenuItem1.setText("Informacion");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        opcionInfoMenu.add(jMenuItem1);
+
         barraMenu.add(opcionInfoMenu);
 
         setJMenuBar(barraMenu);
@@ -154,10 +168,10 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(123, 123, 123))))
             .addGroup(layout.createSequentialGroup()
+                .addGap(192, 192, 192)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)))
                 .addContainerGap(164, Short.MAX_VALUE))
@@ -248,6 +262,11 @@ public class GUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_archivosComboBoxActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JOptionPane.showConfirmDialog(null, "Proyecto numero dos del tema uno de la asignatura Desarrollo de Interfaces\n Elaborado por Guzmán Martínez Santos", "Informacion sobre la practica",
+                JOptionPane.DEFAULT_OPTION , JOptionPane.QUESTION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     private void extraerDatosPaciente(){
         if(paciente.getNombre() != null)
             datosPaciente.add(paciente.getNombre());        
@@ -369,9 +388,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem historialSaludMenuItem;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuItem nacimientoMenuItem1;
     private javax.swing.JMenu opcionInfoMenu;
