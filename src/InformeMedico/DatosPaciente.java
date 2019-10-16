@@ -538,7 +538,7 @@ public class DatosPaciente extends javax.swing.JFrame {
             paciente.setSexo("Masculino");
         }else if(femeninoRadioButton.isSelected()){
             paciente.setSexo("Femenino");
-        }{paciente.setSexo("NoEspecificado");}
+        }else{paciente.setSexo("NoEspecificado");}
         
         paciente.setResidencia(residenciaTextField.getText());
         paciente.setTrabajo(trabajoTextField.getText());
@@ -551,7 +551,7 @@ public class DatosPaciente extends javax.swing.JFrame {
             paciente.setTipoVivienda("Piso");
         }else if(adosadoRadioButton.isSelected()){
             paciente.setTipoVivienda("Adosado");
-        }{paciente.setSexo("NoEspecificado");}
+        }else{paciente.setSexo("NoEspecificado");}
         
         if(mascotasCheckBox.isSelected()){
             paciente.setMacotas(true);
@@ -586,13 +586,21 @@ public class DatosPaciente extends javax.swing.JFrame {
         trabajoTextField.setText(paciente.getTrabajo());
         telefonoTextField.setText(paciente.getTelefono());
         correoTextField.setText(paciente.getCorreo());
+        
+        if(!paciente.tipoMascota.equals(" ")){
+            mascotasCheckBox.setSelected(true);
+            mascotasTextField.setText(paciente.getTipoMascota());
+        }
+        
+        
         if(paciente.getSexo().equals("Masculino")){
             MasculinoRadioButton.setSelected(true);
         }else if(paciente.getSexo().equals("Femenino")){
             femeninoRadioButton.setSelected(true);
         }
+        conviveSpinner.setValue(Integer.parseInt(paciente.getPersonasConvive()));
         empleoTextField.setText(paciente.getEmpleo());
-        //añosSpinner.setValue(paciente.getAnhosEmpleo());
+        añosSpinner.setValue(Integer.parseInt(paciente.getAnhosEmpleo()));
         empleosRiesgoTextField.setText(paciente.getEmpleosRiego());
         
         if(paciente.getTipoVivienda().equals("Chalet")){
